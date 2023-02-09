@@ -1,1 +1,0 @@
-Write pwd script command

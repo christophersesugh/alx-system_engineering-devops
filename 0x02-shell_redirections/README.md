@@ -1,4 +1,3 @@
-* `echo` accepts characters as standard input and print them to the standard output
-* `cat` display the content of a file
-* `tail` without options display the last ten lines of a file
-* `head` without options display the first ten lines of a file
+* `0-hello_world` prints `Hello, World`, followed by a new line to the standard output.
+* `1-confused_smiley` displays a confused smiley `"(Ôo)'`.
+* `2-hellofile` Display the content of the `/etc/passwd` file

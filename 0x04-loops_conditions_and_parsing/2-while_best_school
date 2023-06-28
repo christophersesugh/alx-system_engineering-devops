@@ -3,8 +3,9 @@
 
 i=0
 max=10
+str="Best School"
 
 while [[ $i -lt $max ]]; do
-	echo "Best School"
+	echo "$str"
 	i=$(( i + 1 ))
 done

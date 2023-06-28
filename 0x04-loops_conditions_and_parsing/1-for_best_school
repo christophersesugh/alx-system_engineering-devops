@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #print-string: print Best School ten times
 
-max=10
+str="Best School"
 
-for (( i=0; i < max; i++)); do
-	echo "Best School"
+for (( i=0; i < 10; i++)); do
+	echo "$str"
 done

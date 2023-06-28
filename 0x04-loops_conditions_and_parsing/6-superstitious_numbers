@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#display-numbers: display numbers from 1 to 20 and some strings
+
+count=1
+max=20
+
+while [[ $count -le $max ]]; do
+	echo $count
+	case $count in
+		4)
+			echo "back luck from China"
+			;;
+		9)
+			echo "bad luck from Japan"
+			;;
+		17)
+			echo "bad luck from Italy"
+			;;
+		*)
+			;;
+	esac
+	count=$((count + 1))
+done
+

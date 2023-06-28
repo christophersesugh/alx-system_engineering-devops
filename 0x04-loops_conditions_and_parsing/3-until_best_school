@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#until-loop: print a string ten times
+
+count=1
+str="Best School"
+
+until [[ $count -gt 10 ]]; do
+	echo "$str"
+	count=$(( count + 1 ))
+done

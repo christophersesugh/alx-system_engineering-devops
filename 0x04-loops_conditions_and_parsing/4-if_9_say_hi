@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#display Hi on line 9
+
+count=0
+max=10
+str="Best School"
+
+while [[ $count -lt 10 ]]; do
+	echo "$str"
+	if [[ $count -eq $((max - 2)) ]]; then
+		echo "Hi"
+	fi
+	count=$((count +1))
+done

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#display-string: display bad luck on line 4 and goodluck on line 8
+
+count=0
+max=10
+str="Best School"
+
+while [[ $count -lt $max ]]; do
+	if [[ $count -eq 3 ]]; then
+		echo "bad luck"
+	elif [[ $count -eq 7 ]]; then
+		echo "good luck"
+	else
+		echo "$str"
+	fi
+	count=$((count + 1))
+done

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#print-content: print the current directory content
+
+for file in *; do
+	if [[ -f $file ]]; then
+		filename=$(echo "$file" | sed 's/^[^0-9]*-//')
+		echo $filename
+	fi
+done

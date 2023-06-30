@@ -4,15 +4,12 @@
 hour=0
 minute=1
 
-while [[ $hour -lt 12 ]]; do
-	if [[ $minute -le 1 && $hour -eq 0 ]]; then
-		echo "Hour: $hour"
-	fi
-	echo $minute
-	if [[ $minute -eq 59 ]]; then
-		hour=$((hour + 1))
-		echo "Hour: $hour"
-		minute=0
-	fi
-	minute=$((minute + 1))
+while [[ $hour -le 12 ]]; do
+	echo "Hour: $hour"
+	minute=1
+	while [[ $minute -le 59 && $hour -lt 12 ]]; do
+		echo $minute
+		minute=$((minute + 1))
+	done
+	hour=$((hour + 1))
 done

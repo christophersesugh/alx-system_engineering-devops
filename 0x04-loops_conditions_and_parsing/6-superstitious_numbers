@@ -17,6 +17,7 @@ while [[ $count -le $max ]]; do
 			;;
 		*)
 			echo $count
+			;;
 	esac
 	count=$((count + 1))
 done

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+#diaplay the currently running processes
+
+ps -ef

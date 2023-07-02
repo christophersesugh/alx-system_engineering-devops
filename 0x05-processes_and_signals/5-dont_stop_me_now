@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#kills a running script
+pid=$(pgrep -f "4-to_infinity_and_beyond")
+if [[ -z $pid ]]; then
+	echo "The script is not running."
+else
+	kill "$pid"
+fi

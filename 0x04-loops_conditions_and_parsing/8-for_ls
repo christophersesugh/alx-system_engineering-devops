@@ -2,8 +2,9 @@
 #print-content: print the current directory content
 
 for file in *; do
-	if [[ -f $file ]]; then
-		filename=$(echo "$file" | sed 's/^[^0-9]*-//')
-		echo $filename
+	if [[ $file == . ]]; then
+		continue
 	fi
+	filename=$(echo "$file" | cut -d '-' -f2-)
+	echo "$filename"
 done

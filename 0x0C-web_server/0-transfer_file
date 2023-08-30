@@ -1,14 +1,37 @@
 #!/usr/bin/env bash
-# Transfer file to server
-PATH_TO_FILE=$1
-IP=$2
-USERNAME=$3
-PATH_TO_SSH_KEY=$4
 
-if [ "$#" -lt 3 ]
-then
-	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+# Check if at least 3 parameters are passed
+if [ $# -lt 3 ]; then
+    echo "Usage: $0 PATH_TO_FILE IP USERNAME [PATH_TO_SSH_KEY]"
+    exit 1
+fi
+
+# Assign parameters to variables
+file_path="$1"
+server_ip="$2"
+username="$3"
+ssh_key="${4:-}"
+
+# Disable strict host key checking for scp
+scp_options="-o StrictHostKeyChecking=no"
+
+# Construct the scp command
+scp_command="scp $scp_options"
+
+# Add SSH key if provided
+if [ -n "$ssh_key" ]; then
+    scp_command="$scp_command -i $ssh_key"
+fi
+
+# Add the file to transfer and destination
+scp_command="$scp_command $file_path $username@$server_ip:~"
+
+# Execute the scp command
+$scp_command
+
+# Check the exit status of scp
+if [ $? -eq 0 ]; then
+    echo "File transferred successfully."
 else
-	sed -i '$ a \    StrictHostKeyChecking no' /etc/ssh/ssh_config
-	scp -i "$PATH_TO_SSH_KEY" "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
+    echo "Error transferring the file."
 fi

@@ -32,6 +32,10 @@ $scp_command
 # Check the exit status of scp
 if [ $? -eq 0 ]; then
     echo "File transferred successfully."
+    # Print the remote directory contents after transfer
+    ssh_command="ssh $username@$server_ip -i $ssh_key 'ls ~/';"
+    eval $ssh_command
 else
     echo "Error transferring the file."
 fi
+

@@ -1,27 +1,8 @@
 #!/usr/bin/env bash
+# installs nginx and configure it to listen on port 80
+# print "Hello World"
 
-# Update package index
-sudo apt-get update
-
-# Install Nginx
-sudo apt-get install -y nginx
-
-# Set up Nginx configuration for Hello World
-echo "server {
-    listen 80;
-    server_name _;
-    location / {
-        echo 'Hello World!';
-    }
-}" | sudo tee /etc/nginx/sites-available/default > /dev/null
-
-# Restart Nginx (without using systemctl)
-sudo service nginx restart
-
-# Verify Nginx status
-if [ "$(sudo service nginx status)" == *"active (running)"* ]; then
-    echo "Nginx is running."
-else
-    echo "Nginx is not running."
-fi
-
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+sudo service nginx start
